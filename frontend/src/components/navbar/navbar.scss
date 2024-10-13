@@ -1,0 +1,48 @@
+@import "../../mixins.scss";
+.navbarWrapper {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 0px;
+  .navLinks {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    li {
+      cursor: pointer;
+      text-transform: capitalize;
+    }
+    .active {
+      border-bottom: 2px solid #49557e;
+    }
+  }
+  .navRight {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+    img {
+      width: 25px;
+      cursor: pointer;
+    }
+    .navBtn {
+      gap: 25px;
+      position: relative;
+      width: 28px;
+    //   border: 1px solid red;
+      img {
+        width: 100%;
+        cursor: pointer;
+      }
+    //   &::after
+    }
+    button {
+      outline: none;
+      padding: 8px 30px;
+      border-radius: 9999px;
+      cursor: pointer;
+      border: 1px solid lightgray;
+      background-color: transparent;
+    }
+  }
+}

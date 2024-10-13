@@ -1,0 +1,15 @@
+.foodSection {
+  width: 100%;
+  margin: 20px auto;
+  h2 {
+    margin-bottom: 10px;
+  }
+  .foodItems {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 30px;
+    margin-top: 35px;
+
+  }
+}
