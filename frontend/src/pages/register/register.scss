@@ -1,0 +1,105 @@
+@import "../../mixins.scss";
+.register-section {
+  width: 100%;
+  height: 90vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  .register-container {
+    width: 70%;
+    height: 75%;
+    padding: 20px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #fcfcfc;
+    box-shadow: 0px 3px 10px rgba($color: #000000, $alpha: 0.12);
+    border-radius: 10px;
+    .register-left {
+      width: 50%;
+      text-align: center;
+     
+      .inp {
+        .box {
+          margin: 25px auto;
+          padding: 5px 2px;
+          width: 70%;
+          border-bottom: 2px solid lightgray;
+          display: flex;
+          align-items: center;
+          gap: 15px;
+      
+          input {
+            border: none;
+            outline: none;
+            background-color: transparent;
+            width: 100%;          }
+        }
+        .box .number-box {
+          color: red;
+          // input::-webkit-inner-spin-button {
+          //   -webkit-appearance: none;
+          //   margin: 0;
+          // }
+        }
+      }
+      .btn {
+        button {
+          width: 130px;
+          border-radius: 3px;
+          padding: 9px 20px;
+          background-color: tomato;
+          color: white;
+          border: none;
+          font-size: max(1.5vw, 16px);
+          border: none;
+          cursor: pointer;
+        }
+      }
+    }
+    .register-right {
+      width: 50%;
+      text-align: center;
+      img {
+        width: 320px;
+      }
+      .text {
+        cursor: pointer;
+        p {
+          width: max-content;
+          margin: 0px auto;
+          &:hover {
+            border-bottom: 1px solid lightgray;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .register-section {
+    .register-container {
+      width: 95%;
+      height: 100vh;
+      flex-direction: column;
+      justify-content: space-evenly;
+      .register-left {
+        width: 100%;
+        // padding: 10px 0px;
+        .inp {
+          .box {
+            width: 90%;
+          }
+        }
+      }
+      .register-right {
+        width: 100%;
+        padding: 20px 0px;
+        img {
+          width: 280px;
+        }
+      }
+    }
+  }
+}

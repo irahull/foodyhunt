@@ -5,6 +5,9 @@
   align-items: center;
   justify-content: space-between;
   padding: 10px 0px;
+  h2{
+    cursor: pointer;
+  }
   .navLinks {
     display: flex;
     align-items: center;
@@ -20,7 +23,7 @@
   .navRight {
     display: flex;
     align-items: center;
-    gap: 25px;
+    gap: 20px;
     img {
       width: 25px;
       cursor: pointer;
@@ -38,7 +41,7 @@
     }
     button {
       outline: none;
-      padding: 8px 30px;
+      padding: 8px 25px;
       border-radius: 9999px;
       cursor: pointer;
       border: 1px solid lightgray;

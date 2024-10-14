@@ -1,44 +1,70 @@
 import React, { useState } from "react";
 import "./navbar.scss";
 import { assets } from "../../assets/assets";
+import { Link, useNavigate } from "react-router-dom";
 
 const Navbar = () => {
   const [active, setActive] = useState("home");
+
+  const navigate = useNavigate("/")
 
   const handleNav = (e) => {
     setActive(e.target.innerHTML);
   };
   return (
     <div className="navbarWrapper">
-      <h2 className="navLogo">Food<span style={{
-        color:"tomato"
-      }}>Hunt</span></h2>
+      <h2 className="navLogo" onClick={()=> navigate("/")}>
+        Food
+        <span
+          style={{
+            color: "tomato",
+          }}
+        >
+          Hunt
+        </span>
+      </h2>
       <ul className="navLinks">
-        <li className={active === "home" ? "active" : ""} onClick={handleNav}>
+        <Link
+          to="/"
+          className={active === "home" ? "active" : ""}
+          onClick={handleNav}
+        >
           home
-        </li>
-        <li className={active === "menu" ? "active" : ""} onClick={handleNav}>
+        </Link>
+        <a
+          href="#menu"
+          className={active === "menu" ? "active" : ""}
+          onClick={handleNav}
+        >
           menu
-        </li>
-        <li
+        </a>
+        <a
+          href="#footer"
+          className={active === "mobile app" ? "active" : ""}
+          onClick={handleNav}
+        >
+          mobile app
+        </a>
+        <a
+          href="#footer"
           className={active === "contact" ? "active" : ""}
           onClick={handleNav}
         >
           contact
-        </li>
-        <li
-          className={active === "privacy" ? "active" : ""}
-          onClick={handleNav}
-        >
-          privacy
-        </li>
+        </a>
       </ul>
       <div className="navRight">
         <img src={assets.search_icon} alt="" />
         <div className="navBtn">
-          <img src={assets.bag_icon} alt="" />
+         <Link to ="/cart"> <img src={assets.bag_icon} alt="" /></Link>
         </div>
-          <button>Sign In</button>
+       
+        <Link to="/login">
+          <button>Login</button>
+        </Link>
+        <Link to="/register">
+          <button>Register</button>
+        </Link>
       </div>
     </div>
   );

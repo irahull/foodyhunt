@@ -6,8 +6,10 @@
   transition: 0.3s;
   padding-bottom: 10px;
   overflow: hidden;
+  position: relative;
   .fiImage {
     overflow: hidden;
+    position: relative;
     img {
       width: 100%;
       border-radius: 10px 10px 0px 0px;
@@ -15,6 +17,60 @@
       &:hover {
         transform: scale(1.1);
       }
+    }
+    .fiItemAdd {
+      z-index: 2;
+      position: absolute;
+      // color: white;
+      right: 1%;
+      bottom: 2%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 2px;
+      //   padding: 2px;
+      //   border: 1px solid red;
+      border-radius: 999px;
+      background-color: rgb(255, 255, 255);
+      svg {
+        font-size: 25px;
+        color: rgb(0, 255, 68);
+      }
+    }
+    .elseItem {
+      z-index: 2;
+      position: absolute;
+      // color: white;
+      right: 1%;
+      bottom: 2%;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 3px 5px;
+      border-radius: 999px;
+      background-color: white;
+      //   color: white;
+      .fiRemove,
+      .fiAdd {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        svg {
+          font-size: 25px;
+        }
+      }
+      .fiRemove {
+        color: tomato;
+        svg{
+            font-size: 23px;
+        }
+      }
+      .fiAdd {
+        color: rgb(0, 255, 68);
+      }
+    }
+    .fiItem {
+      font-size: 22px;
     }
   }
   .fiHeading {
@@ -41,7 +97,7 @@
     padding: 0px 10px;
     font-size: max(1.1vw, 15px);
   }
-  .fiPrice{
+  .fiPrice {
     color: tomato;
     font-size: 20px;
     margin: 5px 0px;

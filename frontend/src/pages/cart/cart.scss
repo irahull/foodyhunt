@@ -1,0 +1,32 @@
+.cartSection {
+  margin-top: 100px;
+  .cartBox {
+    .cartTitle {
+      display: grid;
+      grid-template-columns: 1fr 1.5fr 1fr 1fr 1fr 0.5fr;
+      align-items: center;
+      font-size: max(1.5vw, 15px);
+      color: gray;
+    }
+    .cartItem {
+      margin: 10px auto;
+      img {
+        width: 50px;
+        align-items: center;
+        color: #171717;
+      }
+      p {
+    }
+    .removeCartItem {
+          font-size: max(1.4vw, 14px);
+        cursor: pointer;
+      }
+    }
+    hr{
+        height: 1px;
+        margin: 5px auto;
+        background-color: lightgray;
+        border: none;
+    }
+  }
+}
