@@ -1,0 +1,77 @@
+.orderSection {
+  width: 98%;
+  height: auto;
+  display: flex;
+  //   align-items: center;
+  justify-content: space-between;
+  margin-top: 80px;
+  .orderLeft {
+    width: 48%;
+    // border: 1px solid red;
+    h3 {
+      margin-bottom: 20px;
+    }
+    .orderInp {
+      display: flex;
+      // align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      input {
+        margin-top: 15px;
+        padding: 10px;
+        outline: none;
+        font-size: max(1.1vw, 14px);
+        border: 1px solid lightgray;
+        border-radius: 3px;
+      }
+      .singleInput {
+        width: 100%;
+      }
+      .multipleInput {
+        display: flex;
+        justify-content: space-between;
+
+        align-items: center;
+        input {
+          width: 48%;
+        }
+      }
+    }
+  }
+  .orderRight {
+    width: 35%;
+    margin-top: 10px;
+    h3 {
+      font-size: max(1.8vw, 20px);
+   
+      margin-bottom: 20px;
+    }
+    .subTotal,
+    .deliveryFee,
+    .finalTotal {
+      padding: 5px 2px;
+      margin-top: 15px;
+      // width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    hr {
+      height: 1px;
+      margin: 5px auto;
+      background-color: lightgray;
+      border: none;
+    }
+    .paymentBtn {
+      margin-top: 20px;
+      padding: 8px 30px;
+      background-color: tomato;
+      width: max-content;
+      color: white;
+      border-radius: 3px;
+      font-weight: 400;
+      cursor: pointer;
+      font-size: max(1.1vw, 15px);
+    }
+  }
+}

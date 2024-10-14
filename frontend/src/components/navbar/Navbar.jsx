@@ -1,19 +1,22 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import "./navbar.scss";
 import { assets } from "../../assets/assets";
 import { Link, useNavigate } from "react-router-dom";
+import { Context } from "../../contexts/AppContext";
 
 const Navbar = () => {
   const [active, setActive] = useState("home");
 
-  const navigate = useNavigate("/")
+  const navigate = useNavigate("/");
+
+  const { totalCartItem } = useContext(Context);
 
   const handleNav = (e) => {
     setActive(e.target.innerHTML);
   };
   return (
     <div className="navbarWrapper">
-      <h2 className="navLogo" onClick={()=> navigate("/")}>
+      <h2 className="navLogo" onClick={() => navigate("/")}>
         Food
         <span
           style={{
@@ -56,9 +59,15 @@ const Navbar = () => {
       <div className="navRight">
         <img src={assets.search_icon} alt="" />
         <div className="navBtn">
-         <Link to ="/cart"> <img src={assets.bag_icon} alt="" /></Link>
+          <Link to="/cart">
+            {" "}
+            <img src={assets.bag_icon} alt="" />
+          </Link>
+          {totalCartItem() > 0 ? (
+            <span className="cartProduct">{totalCartItem()}</span>
+          ) : ""}
         </div>
-       
+
         <Link to="/login">
           <button>Login</button>
         </Link>

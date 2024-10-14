@@ -20,9 +20,27 @@ export const AppContext = ({ children }) => {
     }
   };
 
-  useEffect(() => {
-    console.log(cartItems);
-  }, [cartItems]);
+  const totalCartItem = () => {
+    let items = 0;
+    for (const item in cartItems) {
+      items += item.length;
+    }
+    return items;
+  };
+
+ 
+
+  const totalCartAmount = () => {
+    let total = 0;
+    for (const item in cartItems) {
+      if (cartItems[item] > 0) {
+        let itemInfo = food_list.find((product) => product._id === item);
+        total += itemInfo.price * cartItems[item];
+        console.log(total);
+      }
+    }
+    return total;
+  };
 
   const contextValue = {
     food_list,
@@ -30,6 +48,8 @@ export const AppContext = ({ children }) => {
     setCartItems,
     addToCart,
     removeFromCart,
+    totalCartAmount,
+    totalCartItem
   };
   return <Context.Provider value={contextValue}>{children}</Context.Provider>;
 };

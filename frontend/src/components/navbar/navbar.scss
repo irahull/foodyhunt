@@ -7,6 +7,7 @@
   padding: 10px 0px;
   h2{
     cursor: pointer;
+    color: black;
   }
   .navLinks {
     display: flex;
@@ -32,10 +33,27 @@
       gap: 25px;
       position: relative;
       width: 28px;
-    //   border: 1px solid red;
       img {
+        z-index: 2;
+        position: relative;
         width: 100%;
         cursor: pointer;
+      }
+      .cartProduct{
+        position: absolute;
+        top: -8px;
+        right: -10px;
+        z-index: -1;
+        width: 18px;
+        height: 18px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: tomato;
+        color: white;
+        padding: 3px;
+        border-radius: 999px;
+        font-size: max(0.85vw,11px);
       }
     //   &::after
     }

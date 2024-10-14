@@ -47,7 +47,7 @@ const Register = () => {
               />
             </div>
 
-            <div className="box number-box">
+            {/* <div className="box number-box">
             <FaPhoneAlt />
               <input
                 type="number"
@@ -56,7 +56,7 @@ const Register = () => {
                 name="phone"
                 value={userData.phone}
               />
-            </div>
+            </div> */}
 
             <div className="box password-box">
             <FaLock />
