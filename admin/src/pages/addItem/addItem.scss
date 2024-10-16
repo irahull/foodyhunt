@@ -1,0 +1,56 @@
+.addProduct {
+  width: 82%;
+  padding: 2% 0%;
+  //   border: 1px solid red;
+  display: flex;
+  align-items: center;
+  // justify-content: center;
+  flex-direction: column;
+  p {
+    font-size: 1.1vw;
+  }
+  input,
+  textarea,
+  select,
+  option {
+    width: 100%;
+    padding: 10px 10px;
+    outline: none;
+    border: 1px solid lightgray;
+    border-radius: 3px;
+    font-family: "Outfit", sans-serif;
+  }
+  .uploadImage {
+    text-align: center;
+    img {
+      cursor: pointer;
+    }
+  }
+  .productName,
+  .productDescription,
+  .productCategoryAndPrice {
+    width: 50%;
+    margin-top: 1.5vw;
+  }
+  .productCategoryAndPrice {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1vw;
+    .productCategory {
+      width: 45%;
+    }
+    .productPrice {
+      width: 45%;
+    }
+  }
+  .addBtn {
+    width: 50%;
+    margin-top: 2vw;
+    text-align: center;
+    border-radius: 3px;
+    background-color: black;
+    color: white;
+    padding: 10px;
+  }
+}

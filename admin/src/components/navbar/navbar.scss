@@ -1,0 +1,17 @@
+.navbarSection{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0% 5%;
+    height: 10vh;
+    .navLeft{
+        width: max-content;
+        text-align: center;
+        h2{
+            line-height: 1;
+        }
+        h5{
+            line-height: 1;
+        }
+    }
+}

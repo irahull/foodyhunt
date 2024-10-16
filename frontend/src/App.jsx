@@ -8,6 +8,7 @@ import Cart from "./pages/cart/Cart";
 import Footer from "./components/footer/Footer";
 import Login from "./pages/login/Login";
 import Register from "./pages/register/Register";
+import SingleFoodItem from "./components/singleFoodItem/SingleFoodItem";
 
 const App = () => {
   return (
@@ -21,6 +22,7 @@ const App = () => {
           <Route exact path="/order" element={<Order />} />
           <Route exact path="/login" element={<Login />} />
           <Route exact path="/register" element={<Register />} />
+          {/* <Route exact path="/food/:id" element={<SingleFoodItem />} /> */}
         </Routes>
       </div>
       <Footer />

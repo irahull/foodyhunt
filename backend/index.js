@@ -16,6 +16,9 @@ dbConnection();
 app.use("/api/auth", authRoute);
 app.use("/api/food", foodRoute);
 
+// Serve static image files from the "uploads" directory
+app.use("/images", express.static("uploads"));
+
 app.get("/", (req, res) => {
   res.send("Hello World!");
 });

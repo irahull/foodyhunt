@@ -5,6 +5,7 @@ import { FaRegStar } from "react-icons/fa6";
 import { FaMinus } from "react-icons/fa6";
 import { IoMdAdd } from "react-icons/io";
 import { Context } from "../../contexts/AppContext";
+// import { Link } from "react-router-dom";
 
 const Card = ({ item }) => {
   const { cartItems, addToCart, removeFromCart } = useContext(Context);
@@ -12,6 +13,7 @@ const Card = ({ item }) => {
     <div key={item._id} className="foodItem">
       <div className="fiImage">
         <img src={item.image} alt={item.name} />
+        {/* <Link to={`/food/${item._id}`}> <img src={item.image} alt={item.name} /></Link> */}
         {!cartItems[item._id] ? (
           <div className="fiItemAdd" onClick={() => addToCart(item._id)}>
             <IoMdAdd />
