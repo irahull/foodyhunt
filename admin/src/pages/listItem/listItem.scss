@@ -1,0 +1,34 @@
+.listSection {
+  width: 82%;
+  padding-top: 2vw;
+  
+  .listTitle {
+    display: grid;
+    padding: 0.5vw 2vw;
+    grid-template-columns: 1fr 1.5fr 1fr 1fr 1fr 0.5fr;
+    align-items: center;
+    font-size: max(1.5vw, 15px);
+    color: gray;
+    // text-align: center;
+  }
+  .listItems {
+
+    img {
+      width: 50px;
+      align-items: center;
+      color: #171717;
+    }
+    p {
+    }
+    .removelistItem {
+      font-size: max(1.4vw, 14px);
+      cursor: pointer;
+    }
+  }
+  hr {
+    height: 1px;
+    margin: 5px auto;
+    background-color: lightgray;
+    border: none;
+  }
+}

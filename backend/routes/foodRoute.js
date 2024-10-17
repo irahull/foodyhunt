@@ -6,7 +6,7 @@ const {
 } = require("../controllers/foodController");
 const upload = require("../middleware/fileUpload");
 
-router.route("/foodList").get(foodList);
+router.route("/list").get(foodList);
 router.post("/add", upload.single("image"), addFood);
 router.post("/delete", deleteFood);
 

@@ -6,11 +6,14 @@ import Sidebar from "./components/sidebar/Sidebar";
 import AddItem from "./pages/addItem/AddItem";
 import ListItem from "./pages/listItem/ListItem";
 import Orders from "./pages/order/Orders";
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const App = () => {
   return (
     <section className="app">
       <Navbar />
+      <ToastContainer />
       <hr />
       <div className="appContent">
         <Sidebar />

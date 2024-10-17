@@ -24,6 +24,7 @@
     text-align: center;
     img {
       cursor: pointer;
+      width: 100px;
     }
   }
   .productName,
@@ -52,5 +53,6 @@
     background-color: black;
     color: white;
     padding: 10px;
+    cursor: pointer;
   }
 }
