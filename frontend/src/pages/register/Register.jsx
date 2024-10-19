@@ -20,11 +20,11 @@ const Register = () => {
   const navigate = useNavigate();
 
   const handleChange = (e) => {
-    setUserData({ ...userData, [e.target.name]: e.target.value });
+    setUserData((data) => ({ ...data, [e.target.name]: e.target.value }));
     console.log(userData);
   };
 
-  const handleLogin = async (e) => {
+  const handleRegister = async (e) => {
     e.preventDefault;
     const res = await apiRequest.post("/auth/register", userData);
     console.log(res);
@@ -90,7 +90,7 @@ const Register = () => {
             </div>
 
             <div className="btn">
-              <button onClick={handleLogin}>Register</button>
+              <button onClick={handleRegister}>Register</button>
             </div>
           </div>
         </div>
