@@ -57,6 +57,13 @@
       }
     //   &::after
     }
+    .logout{
+      font-size: 30px;
+      // border: 1px solid red;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
     button {
       outline: none;
       padding: 8px 25px;

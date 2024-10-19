@@ -5,6 +5,7 @@ export const Context = createContext();
 
 export const AppContext = ({ children }) => {
   const [cartItems, setCartItems] = useState({});
+  const [token, setToken] = useState("");
 
   const addToCart = (id) => {
     if (!cartItems[id]) {
@@ -28,8 +29,6 @@ export const AppContext = ({ children }) => {
     return items;
   };
 
- 
-
   const totalCartAmount = () => {
     let total = 0;
     for (const item in cartItems) {
@@ -49,7 +48,9 @@ export const AppContext = ({ children }) => {
     addToCart,
     removeFromCart,
     totalCartAmount,
-    totalCartItem
+    totalCartItem,
+    token,
+    setToken,
   };
   return <Context.Provider value={contextValue}>{children}</Context.Provider>;
 };

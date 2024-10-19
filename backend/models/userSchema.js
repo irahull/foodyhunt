@@ -2,13 +2,16 @@ const mongoose = require("mongoose");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 
-const userSchema = new mongoose.Schema({
-  name: { type: String, required: true },
-  email: { type: String, required: true },
-  password: { type: String, required: true },
-  date: { type: Date, default: Date.now() },
-});
-
+const userSchema = new mongoose.Schema(
+  {
+    name: { type: String, required: true },
+    email: { type: String, required: true, unique: true },
+    password: { type: String, required: true },
+    cartData: { type: Object, default: {} },
+    date: { type: Date, default: Date.now() },
+  },
+  { minimize: false }
+);
 
 // ------------------------------- hashing a Password
 userSchema.pre("save", async function (next) {
@@ -21,10 +24,11 @@ userSchema.pre("save", async function (next) {
 
 // _________________Comparing a hash Password________________
 
-userSchema.methods.comparePassword = async function(password){
-  return await bcrypt.compare(password, this.password)
-}
+userSchema.methods.comparePassword = async function (password) {
+  return await bcrypt.compare(password, this.password);
+};
 
+// _________________Generating Token________________
 userSchema.methods.generateToken = function () {
   try {
     return jwt.sign(

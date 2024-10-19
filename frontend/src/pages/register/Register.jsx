@@ -1,48 +1,67 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import "./register.scss";
 import RegisterImg from "/register.jpg";
 import { useNavigate } from "react-router-dom";
 
-
-import { FaUser , FaPhoneAlt, FaLock, FaEnvelope} from "react-icons/fa";
-
+import { FaUser, FaPhoneAlt, FaLock, FaEnvelope } from "react-icons/fa";
+import apiRequest from "../../helper/apiRequest";
+import { Context } from "../../contexts/AppContext";
+import { toast } from "react-toastify";
 
 const Register = () => {
   const [userData, setUserData] = useState({
     name: "",
     email: "",
-    phone: "",
-    role: "",
     password: "",
-    cpassword: "",
   });
 
+  const { setToken } = useContext(Context);
+
   const navigate = useNavigate();
+
+  const handleChange = (e) => {
+    setUserData({ ...userData, [e.target.name]: e.target.value });
+    console.log(userData);
+  };
+
+  const handleLogin = async (e) => {
+    e.preventDefault;
+    const res = await apiRequest.post("/auth/register", userData);
+    console.log(res);
+    if (res.data.success) {
+      setToken(res.data.token);
+      localStorage.setItem("token", res.data.token);
+      toast.success("User registration successfull");
+      navigate("/");
+    }
+  };
 
   return (
     <div className="register-section">
       <div className="register-container">
         <div className="register-left">
           <h2>Sign Up</h2>
-          <form method="POST" className="inp">
+          <div className="inp">
             <div className="box name-box">
-            <FaUser />
+              <FaUser />
               <input
                 type="text"
                 placeholder="Your Name"
                 autoComplete="off"
                 name="name"
                 value={userData.name}
+                onChange={handleChange}
               />
             </div>
 
             <div className="box email-box">
-            <FaEnvelope />
+              <FaEnvelope />
               <input
                 type="email"
                 placeholder="Your Email"
                 autoComplete="off"
                 name="email"
+                onChange={handleChange}
                 value={userData.email}
               />
             </div>
@@ -59,20 +78,21 @@ const Register = () => {
             </div> */}
 
             <div className="box password-box">
-            <FaLock />
+              <FaLock />
               <input
                 type="password"
                 placeholder="Password"
                 autoComplete="off"
                 name="password"
+                onChange={handleChange}
                 value={userData.password}
               />
             </div>
 
             <div className="btn">
-              <button>Register</button>
+              <button onClick={handleLogin}>Register</button>
             </div>
-          </form>
+          </div>
         </div>
         <div className="register-right">
           <img src={RegisterImg} alt="Register Image" />

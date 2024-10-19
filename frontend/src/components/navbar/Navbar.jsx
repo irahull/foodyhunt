@@ -3,13 +3,14 @@ import "./navbar.scss";
 import { assets } from "../../assets/assets";
 import { Link, useNavigate } from "react-router-dom";
 import { Context } from "../../contexts/AppContext";
+import { MdLogout } from "react-icons/md";
 
 const Navbar = () => {
   const [active, setActive] = useState("home");
 
   const navigate = useNavigate("/");
 
-  const { totalCartItem } = useContext(Context);
+  const { totalCartItem, token } = useContext(Context);
 
   const handleNav = (e) => {
     setActive(e.target.innerHTML);
@@ -65,15 +66,26 @@ const Navbar = () => {
           </Link>
           {totalCartItem() > 0 ? (
             <span className="cartProduct">{totalCartItem()}</span>
-          ) : ""}
+          ) : (
+            ""
+          )}
         </div>
-
-        <Link to="/login">
-          <button>Login</button>
-        </Link>
-        <Link to="/register">
-          <button>Register</button>
-        </Link>
+        {token ? (
+          <div className="navRight">
+            <Link to="/logout" className="logout">
+            <MdLogout />
+            </Link>
+          </div>
+        ) : (
+          <>
+            <Link to="/login">
+              <button>Login</button>
+            </Link>
+            <Link to="/register">
+              <button>Register</button>
+            </Link>{" "}
+          </>
+        )}
       </div>
     </div>
   );

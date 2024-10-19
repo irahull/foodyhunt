@@ -9,6 +9,8 @@ import Footer from "./components/footer/Footer";
 import Login from "./pages/login/Login";
 import Register from "./pages/register/Register";
 import SingleFoodItem from "./components/singleFoodItem/SingleFoodItem";
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const App = () => {
   return (
@@ -16,6 +18,7 @@ const App = () => {
       {/* <Login/> */}
       <div className="app">
         <Navbar />
+        <ToastContainer/>
         <Routes>
           <Route exact path="/" element={<Home />} />
           <Route exact path="/cart" element={<Cart />} />

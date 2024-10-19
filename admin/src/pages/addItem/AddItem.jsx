@@ -13,29 +13,29 @@ const AddItem = () => {
   });
 
   const handleChange = (e) => {
-    setData({ ...data, [e.target.name]: e.target.value });
+    setData((data) => ({ ...data, [e.target.name]: e.target.value }));
     console.log(data);
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    const res = apiRequest.post("/food/add", {
-      name: data.name,
-      price: data.price,
-      category: data.category,
-      image: image,
-      description: data.description,
-    });
+    // const res = apiRequest.post("/food/add", {
+    //   name: data.name,
+    //   price: data.price,
+    //   category: data.category,
+    //   image: image,
+    //   description: data.description,
+    // });
 
-    // const formData = new FormData();
-    // formData.append("name", data.name);
-    // formData.append("description", data.description);
-    // formData.append("price", data.price);
-    // formData.append("category", data.category);
-    // formData.append("image", data.image);
+    const formData = new FormData();
+    formData.append("name", data.name);
+    formData.append("description", data.description);
+    formData.append("price", data.price);
+    formData.append("category", data.category);
+    formData.append("image", data.image);
 
-    // const res = await apiRequest.post("/food/add", formData);
+    const res = await apiRequest.post("/food/add", formData);
     console.log(res);
   };
 
