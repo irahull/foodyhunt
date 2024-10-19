@@ -5,7 +5,7 @@ export const Context = createContext();
 
 export const AppContext = ({ children }) => {
   const [cartItems, setCartItems] = useState({});
-  const [token, setToken] = useState("");
+  const [token, setToken] = useState();
 
   const addToCart = (id) => {
     if (!cartItems[id]) {
@@ -40,6 +40,12 @@ export const AppContext = ({ children }) => {
     }
     return total;
   };
+
+  useEffect(() => {
+    if (localStorage.getItem("token")) {
+      setToken(localStorage.getItem("token"));
+    }
+  }, []);
 
   const contextValue = {
     food_list,

@@ -4,6 +4,7 @@ import { assets } from "../../assets/assets";
 import { Link, useNavigate } from "react-router-dom";
 import { Context } from "../../contexts/AppContext";
 import { MdLogout } from "react-icons/md";
+import { FaClipboardList, FaUser } from "react-icons/fa";
 
 const Navbar = () => {
   const [active, setActive] = useState("home");
@@ -14,6 +15,12 @@ const Navbar = () => {
 
   const handleNav = (e) => {
     setActive(e.target.innerHTML);
+  };
+
+  const handleLogout = () => {
+    localStorage.removeItem("token");
+    setToken("");
+    navigate("/");
   };
   return (
     <div className="navbarWrapper">
@@ -72,8 +79,8 @@ const Navbar = () => {
         </div>
         {token ? (
           <div className="navRight">
-            <Link to="/logout" className="logout">
-            <MdLogout />
+            <Link to ="/profile" className="user">
+              Profile
             </Link>
           </div>
         ) : (

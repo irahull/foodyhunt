@@ -5,7 +5,7 @@
   align-items: center;
   justify-content: space-between;
   padding: 10px 0px;
-  h2{
+  h2 {
     cursor: pointer;
     color: black;
   }
@@ -39,7 +39,7 @@
         width: 100%;
         cursor: pointer;
       }
-      .cartProduct{
+      .cartProduct {
         position: absolute;
         top: -8px;
         right: -10px;
@@ -53,17 +53,24 @@
         color: white;
         padding: 3px;
         border-radius: 999px;
-        font-size: max(0.85vw,11px);
+        font-size: max(0.85vw, 11px);
       }
-    //   &::after
+      //   &::after
     }
-    .logout{
-      font-size: 30px;
-      // border: 1px solid red;
+    .user {
       display: flex;
       align-items: center;
       justify-content: center;
+      background-color: tomato;
+      color: white;
+      padding: 8px 20px;
+      cursor: pointer;
+      font-size: 16px;
+      letter-spacing: 1px;
+      border-radius: 3px;
+
     }
+
     button {
       outline: none;
       padding: 8px 25px;
