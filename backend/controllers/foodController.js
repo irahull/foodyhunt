@@ -9,7 +9,7 @@ const addFood = async (req, res) => {
     const food = new foodModel({
       name,
       description,
-      price,
+      price: parseInt(price),
       image: img_filename,
       category,
     });

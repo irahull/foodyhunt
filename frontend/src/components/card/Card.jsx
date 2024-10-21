@@ -9,10 +9,14 @@ import { Context } from "../../contexts/AppContext";
 
 const Card = ({ item }) => {
   const { cartItems, addToCart, removeFromCart } = useContext(Context);
+
   return (
     <div key={item._id} className="foodItem">
       <div className="fiImage">
-        <img src={item.image} alt={item.name} />
+        <img
+          src={import.meta.env.VITE_API_BACKEND_URL + "/images/" + item.image}
+          alt={item.name}
+        />
         {/* <Link to={`/food/${item._id}`}> <img src={item.image} alt={item.name} /></Link> */}
         {!cartItems[item._id] ? (
           <div className="fiItemAdd" onClick={() => addToCart(item._id)}>

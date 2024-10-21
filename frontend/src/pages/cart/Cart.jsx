@@ -6,9 +6,8 @@ import { useNavigate } from "react-router-dom";
 const Cart = () => {
   const navigate = useNavigate();
 
-  const { cartItems, food_list, removeFromCart, totalCartAmount } =
+  const { cartItems, foodList, removeFromCart, totalCartAmount } =
     useContext(Context);
-    console.log(totalCartAmount());
 
   return (
     <section className="cartSection">
@@ -23,12 +22,12 @@ const Cart = () => {
         </div>
         <br />
         <hr />
-        {food_list.map((item, i) => {
+        {foodList.map((item, i) => {
           if (cartItems[item._id] > 0) {
             return (
               <div key={i}>
                 <div className="cartTitle cartItem">
-                  <img src={item.image} alt="" />
+                  <img src= {import.meta.env.VITE_API_BACKEND_URL + "/images/" +item.image} alt="" />
                   <p>{item.name}</p>
                   <p>$ {item.price}</p>
                   <p>{cartItems[item._id]}</p>

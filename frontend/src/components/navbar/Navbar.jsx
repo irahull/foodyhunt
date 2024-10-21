@@ -3,8 +3,8 @@ import "./navbar.scss";
 import { assets } from "../../assets/assets";
 import { Link, useNavigate } from "react-router-dom";
 import { Context } from "../../contexts/AppContext";
-import { MdLogout } from "react-icons/md";
-import { FaClipboardList, FaUser } from "react-icons/fa";
+import { FaRegDotCircle } from "react-icons/fa";
+
 
 const Navbar = () => {
   const [active, setActive] = useState("home");
@@ -72,7 +72,11 @@ const Navbar = () => {
             <img src={assets.bag_icon} alt="" />
           </Link>
           {totalCartItem() > 0 ? (
-            <span className="cartProduct">{totalCartItem()}</span>
+            <span className="cartProduct">
+              {/* {totalCartItem()} */}
+              <FaRegDotCircle />
+        
+            </span>
           ) : (
             ""
           )}
