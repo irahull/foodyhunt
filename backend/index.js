@@ -6,6 +6,7 @@ const dbConnection = require("./database/dbConnection");
 const authRoute = require("./routes/authRoute");
 const foodRoute = require("./routes/foodRoute");
 const cartRoute = require("./routes/cartRoute");
+const orderRoute = require("./routes/orderRoute");
 
 // _________________________Middleware______________________________
 app.use(express.json());
@@ -16,6 +17,7 @@ dbConnection();
 app.use("/api/auth", authRoute);
 app.use("/api/food", foodRoute);
 app.use("/api/cart", cartRoute);
+app.use("/api/order", orderRoute);
 
 // Serve static image files from the "uploads" directory
 app.use("/images", express.static("uploads"));

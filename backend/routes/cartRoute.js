@@ -9,6 +9,6 @@ const router = require("express").Router();
 
 router.route("/add").post(authMiddleware, addToCart);
 router.route("/remove").post(authMiddleware, removeFromCart);
-router.route("/get").post(authMiddleware, allCartItem);
+router.route("/get").get(authMiddleware, allCartItem);
 
 module.exports = router;
