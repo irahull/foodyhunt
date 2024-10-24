@@ -11,6 +11,7 @@ import Register from "./pages/register/Register";
 import SingleFoodItem from "./components/singleFoodItem/SingleFoodItem";
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import Profile from "./pages/profile/Profile";
 
 const App = () => {
   return (
@@ -25,6 +26,7 @@ const App = () => {
           <Route exact path="/order" element={<Order />} />
           <Route exact path="/login" element={<Login />} />
           <Route exact path="/register" element={<Register />} />
+          <Route exact path="/profile" element={<Profile />} />
           {/* <Route exact path="/food/:id" element={<SingleFoodItem />} /> */}
         </Routes>
       </div>

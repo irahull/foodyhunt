@@ -17,11 +17,6 @@ const Navbar = () => {
     setActive(e.target.innerHTML);
   };
 
-  const handleLogout = () => {
-    localStorage.removeItem("token");
-    setToken("");
-    navigate("/");
-  };
   return (
     <div className="navbarWrapper">
       <h2 className="navLogo" onClick={() => navigate("/")}>

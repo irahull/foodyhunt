@@ -15,7 +15,7 @@ const Login = () => {
   const navigate = useNavigate();
 
   
-  const { setToken } = useContext(Context);
+  const { setToken, updateUser } = useContext(Context);
 
   const handleChange = (e) => {
     setUserData((data) => ({ ...data, [e.target.name]: e.target.value }));
@@ -25,8 +25,8 @@ const Login = () => {
   const handleLogin = async (e) => {
     e.preventDefault;
     const res = await apiRequest.post("/auth/login", userData);
-    console.log(res);
     if (res.data.success) {
+      updateUser(res.data.userData);
       setToken(res.data.token);
       localStorage.setItem("token", res.data.token);
       toast.success("User login successfull");

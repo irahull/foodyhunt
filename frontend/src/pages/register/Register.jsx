@@ -32,7 +32,7 @@ const Register = () => {
       setToken(res.data.token);
       localStorage.setItem("token", res.data.token);
       toast.success("User registration successfull");
-      navigate("/");
+      navigate("/login");
     }
   };
 
