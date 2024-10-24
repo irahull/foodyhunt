@@ -21,7 +21,9 @@ const register = async (req, resp) => {
     const userExist = await User.findOne({ email });
 
     if (userExist) {
-      return resp.status(400).json({ msg: "User Already Exits" , success:false});
+      return resp
+        .status(400)
+        .json({ msg: "User Already Exits", success: false });
     }
 
     const newUser = await User.create({
@@ -30,9 +32,12 @@ const register = async (req, resp) => {
       password,
     });
 
+    // const { password: userPassword, ...userInfo } = newUser;
+
     if (newUser) {
       resp.status(201).json({
         success: true,
+        // userData: userInfo,
         msg: "User Created Successfully",
         token: await newUser.generateToken(),
       });
@@ -61,10 +66,13 @@ const login = async (req, resp) => {
     // const checkPass = await bcrypt.compare(password, checkUser.password);
     const checkPass = await checkUser.comparePassword(password);
 
+    // const { password: userPassword, ...userInfo } = checkUser;
+
     if (checkPass) {
       resp.status(200).json({
         success: true,
         msg: "User Login Successfull",
+        userData: checkUser,
         token: await checkUser.generateToken(),
       });
     } else {

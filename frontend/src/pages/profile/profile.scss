@@ -1,0 +1,34 @@
+.profileWrapper{
+    width: 100%;
+    height: 70vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    .profileContent{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        padding: 2vw 3vw;
+        background-color: azure;
+        gap: 2vw;
+        p{
+            font-size: 3vw;
+        }
+        .profileName{
+            text-transform: capitalize;
+        }
+        .profileLogout{
+            button{
+                padding: 1vw 3vw;
+                cursor: pointer;
+                border: none;
+                outline: none;
+                border-radius: 3px;
+                color: white;
+                cursor: pointer;
+                background-color: tomato;
+            }
+        }
+    }
+}

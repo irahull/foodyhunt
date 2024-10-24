@@ -7,6 +7,17 @@ export const AppContext = ({ children }) => {
   const [cartItems, setCartItems] = useState({});
   const [token, setToken] = useState();
   const [foodList, setFoodList] = useState([]);
+  const [currentUser, setCurrentUser] = useState(
+    JSON.parse(localStorage.getItem("user")) || null
+  );
+
+  const updateUser = (data) => {
+    return setCurrentUser(data);
+  };
+
+  useEffect(() => {
+    localStorage.setItem("user", JSON.stringify(currentUser));
+  }, [currentUser]);
 
   const getFoodItems = async () => {
     const res = await apiRequest.get("/food/list");
@@ -81,6 +92,8 @@ export const AppContext = ({ children }) => {
     totalCartItem,
     token,
     setToken,
+    updateUser,
+    currentUser,
     foodList,
   };
   return <Context.Provider value={contextValue}>{children}</Context.Provider>;
