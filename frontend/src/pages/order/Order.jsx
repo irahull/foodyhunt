@@ -22,33 +22,33 @@ const Orders = () => {
     setOrderData((data) => ({ ...data, [e.target.name]: e.target.value }));
   };
 
-  // const placeOrder = async (e) => {
-  //   e.preventDefault();
-  //   let orderItems = [];
-  //   foodList.map((item) => {
-  //     if (cartItems[item._id] > 0) {
-  //       let infoItem = item;
-  //       infoItem["quantity"] = cartItems[item._id];
-  //       orderItems.push(infoItem);
-  //     }
-  //   });
+  const placeOrder = async (e) => {
+    e.preventDefault();
+    let orderItems = [];
+    foodList.map((item) => {
+      if (cartItems[item._id] > 0) {
+        let infoItem = item;
+        infoItem["quantity"] = cartItems[item._id];
+        orderItems.push(infoItem);
+      }
+    });
 
-  //   let finalData = {
-  //     address: orderData,
-  //     items: orderItems,
-  //     amount: totalCartAmount() + 2,
-  //   };
+    let finalData = {
+      address: orderData,
+      items: orderItems,
+      amount: totalCartAmount() + 2,
+    };
 
-  //   let res = apiRequest.post("/order/place", finalData, {
-  //     headers: { token },
-  //   });
+    let res = apiRequest.post("/order/place", finalData, {
+      headers: { token },
+    });
 
-  //   console.log(res);
-  // };
+    console.log(res);
+  };
 
   return (
     <section className="orderSection">
-      <div className="orderLeft">
+      <form  className="orderLeft">
         <h3>Delivery Information</h3>
         <div className="orderInp">
           <div className="fullName multipleInput">
@@ -138,7 +138,7 @@ const Orders = () => {
             onChange={handleChange}
           />
         </div>
-      </div>
+      </form>
       <div className="orderRight">
         <h3>Cart Totals</h3>
         <div className="subTotal">

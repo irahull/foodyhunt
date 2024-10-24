@@ -21,7 +21,7 @@ const addToCart = async (req, res) => {
       res.json({
         message: "Item added to cart successfully",
         success: true,
-        updatedCart,
+        cartData: updatedCart,
       });
     }
   } catch (error) {
@@ -57,7 +57,8 @@ const allCartItem = async (req, res) => {
   try {
     const userData = await User.findById({ _id: req.userId });
     let cartData = await userData.cartData;
-    res.json({ data : cartData, success: true });
+    console.log(cartData);
+    res.json({ cartData, success: true });
   } catch (error) {
     res.status(400).json({ message: error.message, success: false });
   }
