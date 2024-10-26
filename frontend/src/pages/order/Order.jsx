@@ -47,8 +47,8 @@ const Orders = () => {
   };
 
   return (
-    <section className="orderSection">
-      <form  className="orderLeft">
+    <form className="orderSection">
+      <div  className="orderLeft">
         <h3>Delivery Information</h3>
         <div className="orderInp">
           <div className="fullName multipleInput">
@@ -138,7 +138,7 @@ const Orders = () => {
             onChange={handleChange}
           />
         </div>
-      </form>
+      </div>
       <div className="orderRight">
         <h3>Cart Totals</h3>
         <div className="subTotal">
@@ -164,7 +164,7 @@ const Orders = () => {
           Proceed To Payment
         </div>
       </div>
-    </section>
+    </form>
   );
 };
 

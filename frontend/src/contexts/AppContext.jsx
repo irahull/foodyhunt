@@ -58,9 +58,8 @@ export const AppContext = ({ children }) => {
       if (cartItems[item] > 0) {
         // console.log(item);
         let itemInfo = foodList.find((product) => product._id === item);
-        console.log(itemInfo);
-        // total += itemInfo.price * cartItems[item];
-        console.log(total);
+        // console.log(itemInfo.price);
+        total += itemInfo.price * cartItems[item];
       }
     }
     return total;
@@ -68,7 +67,7 @@ export const AppContext = ({ children }) => {
 
   const loadCartData = async (token) => {
     const res = await apiRequest.post("/cart/get", {}, { headers: { token } });
-    console.log(res);
+    // console.log(res);
     setCartItems(res.data.cartData);
   };
 
