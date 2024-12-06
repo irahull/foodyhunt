@@ -1,4 +1,3 @@
-const { Cursor } = require("mongoose");
 const orderModel = require("../models/orderSchema");
 const User = require("../models/userSchema");
 const Stripe = require("stripe");
@@ -19,7 +18,7 @@ const placeOrder = async (req, res) => {
     await newOrder.save();
     await User.findByIdAndUpdate(userId, { cartData: {} });
 
-    const lineItems = items.map((lineItem) => ({
+    const line_items = items.map((lineItem) => ({
       priceData: {
         currency: "usd",
         product_data: {
@@ -30,7 +29,7 @@ const placeOrder = async (req, res) => {
       quantity: lineItem.quantity,
     }));
 
-    lineItems.push({
+    line_items.push({
       priceData: {
         currency: "usd",
         product_data: {
@@ -42,7 +41,7 @@ const placeOrder = async (req, res) => {
     });
 
     const session = await stripe.checkout.sessions.create({
-      lineItems: lineItems,
+      line_items: line_items,
       mode: "payment",
       success_url: `${process.env.FRONTEND_URL}/verify?success=true&orderId=${newOrder._id}`,
       cancel_url: `${process.env.FRONTEND_URL}/verify?success=false&orderId=${newOrder._id}`,

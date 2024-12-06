@@ -33,22 +33,26 @@ const Orders = () => {
       }
     });
 
+    console.log(orderItems); 
+
     let finalData = {
       address: orderData,
       items: orderItems,
       amount: totalCartAmount() + 2,
     };
 
-    let res = apiRequest.post("/order/place", finalData, {
+    let res = await apiRequest.post("/order/place", finalData, {
       headers: { token },
     });
 
     console.log(res);
   };
 
+  // console.log(orderData);
+
   return (
-    <form className="orderSection">
-      <div  className="orderLeft">
+    <form className="orderSection" onSubmit={placeOrder}>
+      <div className="orderLeft">
         <h3>Delivery Information</h3>
         <div className="orderInp">
           <div className="fullName multipleInput">
@@ -72,7 +76,7 @@ const Orders = () => {
             />
           </div>
           <input
-            type="text"
+            type="email"
             placeholder="Email"
             className="singleInput"
             required
@@ -160,9 +164,9 @@ const Orders = () => {
           </b>
         </div>
         <hr />
-        <div className="paymentBtn" onClick={placeOrder}>
+        <button type="submit" className="paymentBtn">
           Proceed To Payment
-        </div>
+        </button>
       </div>
     </form>
   );
